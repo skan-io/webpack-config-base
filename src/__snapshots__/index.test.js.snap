@@ -1,0 +1,236 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webpack-config regression 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "./build",
+    "historyApiFallback": Object {
+      "rewrites": Array [
+        Object {
+          "from": /\\^\\\\/\\$/,
+          "to": "/path/",
+        },
+      ],
+    },
+    "host": "0.0.0.0",
+    "inline": true,
+    "port": 8080,
+    "publicPath": "/path/",
+    "stats": "minimal",
+  },
+  "devtool": false,
+  "entry": Object {
+    "index": Array [
+      "@babel/polyfill",
+      Object {
+        "obj": Object {
+          "appUrl": "test-url.com",
+          "output": "index.html",
+          "version": "version-test",
+        },
+        "path": "./src/index.html.js",
+      },
+    ],
+  },
+  "mode": "production",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\(\\\\\\.css\\)\\$/,
+        "use": Array [
+          "/Users/nick.manks/skan/webpack-config-base/node_modules/mini-css-extract-plugin/dist/loader.js",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "camelCase": true,
+              "importLoaders": 2,
+              "localIdentName": "[name]_[local]_[hash:base64:5]",
+              "modules": true,
+              "sourceMap": false,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": [Function],
+              "sourceMap": false,
+            },
+          },
+        ],
+      },
+      Object {
+        "loader": "url-loader?limit=1",
+        "test": /\\\\\\.\\(png\\|jpg\\|svg\\|ico\\|gif\\)\\$/,
+      },
+      Object {
+        "include": Array [
+          "/Users/nick.manks/skan/webpack-config-base/src",
+        ],
+        "loader": "babel-loader",
+        "options": Object {
+          "envName": "production",
+        },
+        "test": /\\\\\\.jsx\\?\\$/,
+      },
+    ],
+  },
+  "optimization": Object {
+    "minimize": true,
+    "runtimeChunk": Object {
+      "name": "runtime",
+    },
+    "splitChunks": Object {
+      "cacheGroups": Object {
+        "default": false,
+        "react": Object {
+          "chunks": "all",
+          "name": "react",
+          "test": /\\[\\\\\\\\\\\\/\\]node_modules\\[\\\\\\\\\\\\/\\]react/,
+        },
+      },
+      "chunks": "all",
+      "name": false,
+    },
+  },
+  "output": Object {
+    "devtoolModuleFilenameTemplate": [Function],
+    "filename": "[name]-[contenthash].js",
+    "path": "/Users/nick.manks/skan/webpack-config-base/build/pkg",
+  },
+  "plugins": Array [
+    EntryTransformPlugin {},
+    Object {
+      "apply": [Function],
+    },
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name]-[contenthash].css",
+        "filename": "[name].css",
+      },
+    },
+  ],
+}
+`;
+
+exports[`webpack-config regression 2`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "./build",
+    "historyApiFallback": Object {
+      "rewrites": Array [
+        Object {
+          "from": /\\^\\\\/\\$/,
+          "to": "/path/",
+        },
+      ],
+    },
+    "host": "0.0.0.0",
+    "inline": true,
+    "port": 8080,
+    "publicPath": "/path/",
+    "stats": "minimal",
+  },
+  "devtool": "#cheap-module-source-map",
+  "entry": Object {
+    "index": Array [
+      "@babel/polyfill",
+      Object {
+        "obj": Object {
+          "appUrl": "test-url.com",
+          "output": "index.html",
+          "version": "version-test",
+        },
+        "path": "./src/index.html.js",
+      },
+    ],
+  },
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\(\\\\\\.scss\\|\\\\\\.css\\)\\$/,
+        "use": Array [
+          "/Users/nick.manks/skan/webpack-config-base/node_modules/mini-css-extract-plugin/dist/loader.js",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "camelCase": true,
+              "importLoaders": 2,
+              "localIdentName": "[name]_[local]_[hash:base64:5]",
+              "modules": true,
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "postcss-loader",
+            "options": Object {
+              "plugins": [Function],
+              "sourceMap": true,
+            },
+          },
+          Object {
+            "loader": "sass-loader",
+            "options": Object {
+              "data": "@import \\"src/theme.scss\\";",
+              "includePaths": Array [
+                "/Users/nick.manks/skan/webpack-config-base",
+                "/Users/nick.manks/skan/webpack-config-base/node_modules",
+              ],
+              "sourceMap": true,
+            },
+          },
+        ],
+      },
+      Object {
+        "loader": "url-loader?limit=1",
+        "test": /\\\\\\.\\(png\\|jpg\\|svg\\|ico\\|gif\\)\\$/,
+      },
+      Object {
+        "include": Array [
+          "/Users/nick.manks/skan/webpack-config-base/src",
+        ],
+        "loader": "babel-loader",
+        "options": Object {
+          "envName": "webpack-dev",
+        },
+        "test": /\\\\\\.jsx\\?\\$/,
+      },
+    ],
+  },
+  "optimization": Object {
+    "minimize": false,
+    "runtimeChunk": Object {
+      "name": "runtime",
+    },
+    "splitChunks": Object {
+      "cacheGroups": Object {
+        "default": false,
+        "react": Object {
+          "chunks": "all",
+          "name": "react",
+          "test": /\\[\\\\\\\\\\\\/\\]node_modules\\[\\\\\\\\\\\\/\\]react/,
+        },
+      },
+      "chunks": "all",
+      "name": true,
+    },
+  },
+  "output": Object {
+    "devtoolModuleFilenameTemplate": [Function],
+    "filename": "[name]-[contenthash].js",
+    "path": "/Users/nick.manks/skan/webpack-config-base/build/pkg",
+  },
+  "plugins": Array [
+    EntryTransformPlugin {},
+    Object {
+      "apply": [Function],
+    },
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name]-[contenthash].css",
+        "filename": "[name].css",
+      },
+    },
+  ],
+}
+`;

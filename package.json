@@ -1,0 +1,68 @@
+{
+  "name": "@skan-io/webpack-config-base",
+  "version": "0.0.0-semantically-released",
+  "description": "A base webpack/dev-server config for react apps that use css",
+  "main": "index.js",
+  "scripts": {
+    "default": "run clean test",
+    "clean": "rimraf ./build",
+    "build": "run build:*",
+    "build:babel": "babel src --out-dir build/pkg --ignore '**/*.test.js'",
+    "build:files": "cp package.json ./README.md ./LICENSE build/pkg/",
+    "test": "run lint jest",
+    "lint": "run lint:*",
+    "lint:js": "eslint --report-unused-disable-directives --ignore-path .gitignore .",
+    "lint:md": "remark --no-stdout --use remark-lint *.md",
+    "jest": "jest --runInBand --no-cache ",
+    "cd": "run clean build release",
+    "release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skan-io/webpack-config-base.git"
+  },
+  "keywords": [
+    "Webpack",
+    "config",
+    "react"
+  ],
+  "author": "Nick Manks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/skan-io/webpack-config-base/issues"
+  },
+  "homepage": "https://github.com/skan-io/webpack-config-base#readme",
+  "dependencies": {
+    "autoprefixer": "^9.4.7",
+    "babel-loader": "^8.0.5",
+    "copy-webpack-plugin": "^4.6.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.1.1",
+    "react-entry-loader": "^2.2.4",
+    "sass-loader": "^7.1.0",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.29.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "devDependencies": {
+    "@skan-io/babel-config-nodejs": "^1.0.1",
+    "@skan-io/eslint-config-base": "^1.0.2",
+    "@skan-io/jest-config-base": "^1.0.0",
+    "@skan-io/release-config": "^1.0.0",
+    "@skan-io/remark-config": "^1.0.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "npx-run": "^2.1.2",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "rimraf": "^2.6.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
