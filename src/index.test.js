@@ -1,24 +1,9 @@
-import webpackConfigurator from '.';
 import {getEntries} from '.';
 
 
 jest.mock('react-entry-loader/entry', ()=> (
   jest.fn((obj)=> (path)=> ({obj, path}))
 ));
-
-test('webpack-config regression', ()=> {
-  expect(webpackConfigurator(
-    ['index.html.js'], 'build/pkg', 8080, 'favicon.png'
-  )('production', 'test-url.com', 'path', 'version-test')
-  ).toMatchSnapshot();
-});
-
-test('webpack-config regression', ()=> {
-  expect(webpackConfigurator(
-    ['index.html.js'], 'build/pkg', 8080, 'favicon.png', true
-  )('webpack-dev', 'test-url.com', 'path', 'version-test')
-  ).toMatchSnapshot();
-});
 
 describe('Getting webpack entry points', ()=> {
   it('get appropriate entries', ()=> {
