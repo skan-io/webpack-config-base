@@ -40,9 +40,11 @@
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.1.1",
     "react-entry-loader": "^2.2.4",
+    "read-package-json": "2.0.13",
     "sass-loader": "^7.1.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.3",
+    "webpack-cli": "3.2.3",
     "webpack-dev-server": "^3.1.14"
   },
   "devDependencies": {
@@ -51,7 +53,7 @@
     "@skan-io/jest-config-base": "^1.0.0",
     "@skan-io/release-config": "^1.0.0",
     "@skan-io/remark-config": "^1.0.1",
-    "cz-conventional-changelog": "^2.1.0",
+    "cz-conventional-changelog": "2.1.0",
     "npx-run": "^2.1.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
