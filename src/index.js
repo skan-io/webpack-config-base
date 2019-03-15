@@ -44,13 +44,15 @@ export const getEntries = (entryPoints, appUrl, version)=> {
   return entries;
 };
 
-const getStyleModuleLoaders = (useSass, isProduction, sassRootTheme)=> {
+const getStyleModuleLoaders = (
+    useSass, isProduction, sassRootTheme, useStyleModules
+)=> {
   const cssStyleModuleLoaders = [
     MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
-        modules: true,
+        modules: useStyleModules,
         sourceMap: !isProduction,
         importLoaders: 2,
         localIdentName: '[name]_[local]_[hash:base64:5]',
@@ -101,7 +103,8 @@ const getStyleModuleLoaders = (useSass, isProduction, sassRootTheme)=> {
  */
 export default (
     buildEntries, buildOutputPath, devServerPort, faviconPath,
-    useSass=false, jsxIncludePaths=['src'], sassRootTheme='theme.scss'
+    useSass=false, useStyleModules=true, jsxIncludePaths=['src'],
+    sassRootTheme='theme.scss'
 )=> (
     nodeEnv, deployUrl, deployPath, version
 )=> {
@@ -157,7 +160,9 @@ export default (
     module: {
       rules: [{
         test: useSass ? /(\.scss|\.css)$/ : /(\.css)$/,
-        use: getStyleModuleLoaders(useSass, isProduction, sassRootTheme)
+        use: getStyleModuleLoaders(
+          useSass, isProduction, sassRootTheme, useStyleModules
+        )
       },
       {
         test: /\.(png|jpg|svg|ico|gif)$/,
