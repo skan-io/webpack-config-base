@@ -146,6 +146,13 @@ export default (
             test: /[\\/]node_modules[\\/]react/,
             name: 'react',
             chunks: 'all'
+          },
+          styles: {
+            // workaround for dynamically loading components.
+            // make sure we only have a single CSS chunk
+            minSize: 0,
+            test: /\.s?css$/,
+            name: 'styles'
           }
         }
       }
