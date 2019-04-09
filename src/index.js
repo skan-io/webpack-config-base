@@ -113,7 +113,7 @@ export default (
   const cwd = process.cwd();
 
   console.log(`
-    Running webpack with config from '.build/config.json':
+    Running webpack with config from './build/config.json':
     NODE_ENV=${nodeEnv}
     version=${version}
     app-url=${appUrl}
